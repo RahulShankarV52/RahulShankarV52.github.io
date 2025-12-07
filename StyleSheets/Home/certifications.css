@@ -1,0 +1,119 @@
+/* --- COMPACT CERTIFICATIONS SECTION --- */
+
+.cert-grid-wrapper {
+    display: grid;
+    /* This ensures cards are at least 280px wide, but stretch to fill space */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    padding: 10px;
+}
+
+/* The Ticket/Module Style */
+.cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 20px;
+    text-decoration: none; /* Removes underline from anchor */
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effect: Slide up and Glow */
+.cert-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--main-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* The little accent bar on the left */
+.cert-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--main-color);
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.cert-item:hover::before {
+    opacity: 1;
+}
+
+/* Layout for Text Info */
+.cert-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 90%;
+}
+
+.cert-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cert-issuer {
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+.cert-item h3 {
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: 500;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* The Small Tag (e.g. "Security") */
+.cert-tag {
+    font-size: 11px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3px 8px;
+    border-radius: 4px;
+    width: fit-content;
+    color: #ccc;
+}
+
+/* The Arrow Icon Container */
+.cert-arrow {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: transparent;
+    transition: 0.3s;
+}
+
+.cert-arrow i {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.3);
+    transition: 0.3s;
+}
+
+/* Arrow Animation on Hover */
+.cert-item:hover .cert-arrow {
+    background: var(--main-color);
+    transform: translateX(5px);
+}
+
+.cert-item:hover .cert-arrow i {
+    color: var(--bg-color);
+}

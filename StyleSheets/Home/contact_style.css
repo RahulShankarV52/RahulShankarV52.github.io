@@ -1,0 +1,88 @@
+/* --- CONTACT SECTION STYLING --- */
+
+.contact-box {
+    max-width: 700px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05); /* Subtle glass card background */
+    padding: 50px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.contact-box p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+/* This makes the key words pop with your chosen accent color */
+.contact-box p .highlight {
+    color: var(--main-color);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+/* Social Icons Row */
+.contact-socials {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.contact-socials a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    font-size: 30px; /* Big Icon */
+    color: var(--main-color);
+    transition: 0.4s;
+    text-decoration: none;
+}
+
+.contact-socials a:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 20px var(--main-color); /* Strong Neon Glow */
+    transform: translateY(-5px);
+}
+.contact-box .btn {
+    display: inline-block; /* CRITICAL: Allows margin-bottom to work */
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    
+    /* Ensure it looks like a button */
+    background: var(--main-color);
+    color: var(--bg-color); 
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 600;
+
+    /* The spacing fix */
+    margin-bottom: 50px; /* Pushes the footer note down */
+}
+
+.contact-box .btn:hover {
+    box-shadow: 0 0 15px var(--main-color);
+    transform: scale(1.05);
+}
+/* Specific Style for the 'Say Hello' Button */
+.email-btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    margin-bottom: 50px; /* Space before footer note */
+}
+
+/* Small Footer Note */
+.footer-note p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5); /* Dimmed text */
+    margin-bottom: 0;
+}

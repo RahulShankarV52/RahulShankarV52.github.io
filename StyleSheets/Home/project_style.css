@@ -1,0 +1,118 @@
+/* --- 5. PROJECTS (Master-Detail List Layout) --- */
+
+.project-container-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    height: 70vh; /* Fixed height window */
+    display: flex;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.2);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+/* LEFT SIDEBAR: List */
+.project-list {
+    width: 300px;
+    background: rgba(0,0,0,0.2);
+    border-right: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.list-header {
+    font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
+    color: #888; margin-bottom: 15px; padding-left: 10px;
+}
+
+.project-item {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px; margin-bottom: 8px; border-radius: 8px;
+    cursor: pointer; transition: 0.3s; border-left: 3px solid transparent;
+}
+
+.project-item:hover, .project-item.active {
+    background: rgba(228, 63, 90, 0.1);
+    border-left: 3px solid var(--main-color);
+}
+
+.project-item .p-name { font-size: 15px; color: #ccc; font-weight: 500; }
+.project-item:hover .p-name, .project-item.active .p-name { color: var(--main-color); font-weight: 600; }
+
+.project-item i { opacity: 0; transform: translateX(-10px); transition: 0.3s; color: var(--main-color); }
+.project-item:hover i, .project-item.active i { opacity: 1; transform: translateX(0); }
+
+/* RIGHT SIDEBAR: Content */
+.project-display {
+    flex: 1;
+    padding: 40px;
+    background: var(--bg-color);
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Project Cards inside Display */
+.project-card { display: none; animation: fadeIn 0.5s ease; }
+.project-card.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Added Container style to create the separator line */
+.card-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+}
+
+.card-header h1 { 
+    font-size: 42px; /* Increased size */
+    margin-bottom: 15px; 
+    color: var(--text-color); 
+    font-weight: 700; /* Made bolder */
+    line-height: 1.2;
+}
+
+.ptech-row { 
+    display: flex; 
+    gap: 10px; /* Puts space between Docker and Bash Scripting */
+    margin-bottom: 0; 
+    flex-wrap: wrap;
+}
+.ptech-badge {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--main-color);
+    border: 2px solid var(--main-color); 
+    padding: 10px 10px;
+    border-radius: 50px; 
+    font-size: 12px; 
+    font-weight: 700; 
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+}
+.ptech-badge:hover {
+    border-color: var(--main-color);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+.ptech-badge span {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.card-body h3 { font-size: 18px; color: var(--main-color); margin: 25px 0 10px; text-transform: uppercase; }
+.card-body p { font-size: 15px; line-height: 1.7; color: #ccc; margin-bottom: 15px; }
+
+.feature-list { list-style: none; margin-left: 5px; }
+.feature-list li { position: relative; padding-left: 20px; margin-bottom: 8px; color: #ddd; font-size: 15px; }
+.feature-list li::before { content: '>'; position: absolute; left: 0; color: var(--main-color); font-weight: bold; }
+
+.btn-link {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 30px;
+    padding: 10px 25px; background: var(--main-color); color: var(--bg-color);
+    font-weight: 700; border-radius: 5px; transition: 0.3s;
+}
+.btn-link:hover {
+    background: transparent; color: var(--main-color); box-shadow: 0 0 15px var(--main-color);
+}

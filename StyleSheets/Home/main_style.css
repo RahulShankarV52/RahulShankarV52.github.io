@@ -1,0 +1,357 @@
+
+:root {
+    --bg-color: #1b1b2f;    /* Deep mountain shadow */
+    --text-color: #eaeaea;  /* Soft white */
+    --main-color: #e43f5a;  /* Reddish-pink sunset */
+}
+::-webkit-scrollbar {
+    display: none;
+}
+html {
+    scrollbar-width: none;   
+    -ms-overflow-style: none;   
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+
+a{
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.navbar{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+@keyframes show-content {
+    100%{
+        visibility: visible;
+        opacity: 1;
+    }
+}
+/* Styling the Logo to look like code */
+.navbar .logo {
+    font-size: 30px;
+    font-weight: 700;
+    font-family: 'Courier New', monospace; /* Monospace font is key for this look */
+    letter-spacing: -1px;
+}
+
+/* The Blinking Cursor */
+.navbar .logo .cursor {
+    display: inline-block;
+    color: var(--main-color);
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+.navbar ul{
+    display: flex;
+}
+.navbar ul li{
+    list-style: none;
+    margin-left: 35px;
+}
+.navbar ul li a{
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+}
+.navbar ul li:hover a,
+.navbar ul li.active a{
+    color: var(--main-color);
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    height: 100vh;
+    padding: 60px 9% 0;
+    color: var(--text-color);
+    visibility: hidden;
+    justify-content: center;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+}
+.home-info h1{
+    font-size: 55px;   
+}
+.home-info h2{
+    display: inline-block;
+    font-size: 32px;
+    margin-top: -10px;   
+}
+.home-info h2 span{
+    position: relative;
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px var(--main-color);
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-4s*var(--i));
+}
+@keyframes display-text {
+    25%,100%{
+        display: none;
+    }
+}
+.home-info h2 span::before{
+    content: attr(data-text);
+    position: absolute;
+    width: 0;
+    border-right: 2px solid var(--main-color);
+    color: var(--main-color);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+@keyframes fill-text {
+    10%,100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
+}
+.home-info p{
+    font-size: 16px;
+    margin: 10px 0 25px; 
+}
+.home-info p.description {
+    font-size: 16px;
+    line-height: 1.8;       /* Adds breathing room between lines */
+    letter-spacing: 0.5px;  /* Makes text easier to read */
+    margin: 20px 0 30px;
+    max-width: 600px;       /* Prevents the line from getting too wide to read */
+    color: var(--text-color);
+    opacity: 0.9;           /* Slightly softer than headers */
+}
+
+/* This makes the key words pop with your chosen accent color */
+.home-info p.description .highlight {
+    color: var(--main-color);
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+.btn-sci{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.btn,.btn-loc{ 
+    display: inline-block;
+    padding: 10px 30px;
+    background: var(--main-color);
+    border: 2px solid var(--main-color);
+    border-radius: 40px;
+    box-shadow: 0 0 10px var(--main-color);
+    font-size: 16px;
+    color: var(--bg-color);
+    font-weight: 600;
+    transition: .5s;
+}
+.btn:hover,.btn-loc:hover{
+    background: transparent;
+    color: var(--main-color);
+    box-shadow: none;
+}
+
+.btn-loc{
+    background: transparent;
+    color: var(--main-color);
+}
+.btn-loc:hover{
+
+    background: var(--main-color);
+    color: var(--bg-color);
+}
+
+.home-info .btn-sci .sci{
+    margin-left: 0px;
+}
+
+.home-info .btn-sci .sci a{
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--main-color);
+    margin: 0 8px;
+    transition: .5s;
+}
+.home-info .btn-sci .sci a:hover{
+    background: var(--main-color);
+    color: var(--bg-color);
+    box-shadow: 0 0 10px var(--main-color);
+}
+
+.home-img .img-box{
+    position: relative;
+    width: 24vw;
+    height: 24vw;
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.home-img .img-box::before,
+.home-img .img-box::after{
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: conic-gradient(transparent,transparent,transparent,var(--main-color));
+    transform: rotate(0deg);
+    animation: rotate-border 10s linear infinite;
+}
+.home-img .img-box::after{
+ animation-delay: -5s;   
+}
+@keyframes rotate-border {
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.home-img .img-box .img-item{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    border: .1px solid var(--bg-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+}
+.home-img .img-box .img-item img{
+    top: -5px;
+    position: absolute;
+    display: block;
+    width: 85%;
+    object-fit: cover;
+    mix-blend-mode: lighten;
+    filter: grayscale(100%) contrast(1.2); 
+    transition: 0.5s ease;
+}
+.home-img:hover .img-box .img-item img{
+    filter: grayscale(0%) contrast(1);
+}
+
+.bar-animation{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+
+.bar-animation .bar{
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    transform: translateY(-100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars {
+    100%{
+    transform: translateY(0%);
+    }
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;    /* Stacks title on top of content */
+    justify-content: center;   /* Centers vertically */
+    align-items: center;       /* Centers horizontally */
+    min-height: 100vh;         /* Makes the section at least as tall as the screen */
+    padding: 100px 20px;       /* Top/Bottom padding so content doesn't hit the edges */
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.section-title {
+    font-size: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--main-color); /* Uses your neon/accent color */
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.container {
+    max-width: 1000px;        /* Keeps text from getting too wide to read */
+    width: 100%;
+    text-align: center;       /* Centers the text inside */
+}
+.floating-bean {
+    position: fixed;
+    /* Swapped 'left' for 'right' */
+    right: 50px;           
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 25px;               
+    padding: 35px 18px;      
+    
+    background: rgba(31, 36, 45, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--main-color);
+    border-radius: 50px;
+    box-shadow: 0 0 15px var(--main-color);
+
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+}
+
+.bean-btn {
+    /* Increased size from 12px to 16px */
+    width: 16px;
+    height: 16px;
+    background: var(--text-color);
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: 0.3s ease;
+}
+
+/* Update hover/active scale to match new size */
+.bean-btn:hover,
+.bean-btn.active {
+    background: var(--main-color);
+    opacity: 1;
+    transform: scale(1.3); 
+    box-shadow: 0 0 10px var(--main-color);
+}
