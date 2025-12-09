@@ -17,13 +17,23 @@
     cursor: pointer;
     border-radius: 30px;
     transition: 0.3s;
+    
+    /* UX: Prevents accidental text highlighting when clicking fast */
+    user-select: none;
+    -webkit-user-select: none;
+    
+    /* A11y: Remove default blue outline */
+    outline: none;
 }
 
+/* Accessible Focus + Hover State */
 .filter-btn:hover,
-.filter-btn.active {
+.filter-btn.active,
+.filter-btn:focus-visible {
     background: var(--main-color);
     color: var(--bg-color);
-    box-shadow: 0 0 10px var(--main-color);
+    box-shadow: 0 0 15px var(--main-color);
+    transform: translateY(-2px);
 }
 
 /* --- FILTER GRID --- */
@@ -34,12 +44,13 @@
     gap: 30px;
     max-width: 1000px;
     width: 100%;
+    margin: 0 auto; /* Ensure centering */
 }
 
 /* The Wrapper for animation logic */
 .filter-item {
-    display: block; /* Default state */
-    animation: fadeIn 0.5s ease;
+    display: block; 
+    animation: fadeIn 0.5s ease backwards; /* backwards ensures opacity 0 before anim starts */
 }
 
 /* Hidden state */
@@ -52,32 +63,73 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 15px 30px;
-    background: rgba(255, 255, 255, 0.05); /* Subtle glass effect */
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.05); 
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
-    width: 200px; /* Fixed width for uniform look */
-    transition: 0.3s;
+    
+    /* OPTIMIZATION: Flexible width instead of fixed 200px */
+    /* This makes them look uniform but allows growth for long text */
+    flex: 1 1 180px; 
+    max-width: 240px; 
+    
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: default; /* Indicates it's just info, not a link */
 }
 
 .tech-badge:hover {
     border-color: var(--main-color);
     transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
     box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
 .tech-badge i {
     font-size: 30px;
     color: var(--main-color);
+    flex-shrink: 0; /* Prevents icon from getting squished */
 }
 
 .tech-badge span {
-    font-size: 18px;
+    font-size: 16px; /* Slightly smaller to fit complex names */
     font-weight: 500;
     color: var(--text-color);
+    white-space: nowrap; /* Keeps names on one line */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." if text is too long */
 }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
+}
+
+/* --- MOBILE OPTIMIZATION --- */
+@media (max-width: 768px) {
+    .filter-menu {
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .filter-container {
+        gap: 15px;
+    }
+
+    .tech-badge {
+        padding: 12px 20px;
+        /* Allow full width on very small screens */
+        flex: 1 1 140px;
+    }
+    
+    .tech-badge i {
+        font-size: 24px;
+    }
+    
+    .tech-badge span {
+        font-size: 14px;
+    }
 }

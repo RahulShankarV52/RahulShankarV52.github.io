@@ -2,12 +2,14 @@
 
 .cert-grid-wrapper {
     display: grid;
-    /* This ensures cards are at least 280px wide, but stretch to fill space */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    /* OPTIMIZATION: min(100%, 280px) prevents overflow on very small screens */
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
     gap: 20px;
     width: 100%;
     max-width: 1100px;
     padding: 10px;
+    /* Center the grid items if there are few items */
+    justify-content: center;
 }
 
 /* The Ticket/Module Style */
@@ -19,14 +21,18 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 10px;
     padding: 20px;
-    text-decoration: none; /* Removes underline from anchor */
+    text-decoration: none; 
     transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    
+    /* Accessibility: clear default outline */
+    outline: none;
 }
 
-/* Hover Effect: Slide up and Glow */
-.cert-item:hover {
+/* Combined Hover & Focus States for Accessibility */
+.cert-item:hover,
+.cert-item:focus {
     transform: translateY(-5px);
     background: rgba(255, 255, 255, 0.06);
     border-color: var(--main-color);
@@ -46,7 +52,8 @@
     transition: 0.3s;
 }
 
-.cert-item:hover::before {
+.cert-item:hover::before,
+.cert-item:focus::before {
     opacity: 1;
 }
 
@@ -104,16 +111,19 @@
 
 .cert-arrow i {
     font-size: 20px;
-    color: rgba(255, 255, 255, 0.3);
+    /* Slightly increased contrast from 0.3 to 0.4 */
+    color: rgba(255, 255, 255, 0.4); 
     transition: 0.3s;
 }
 
-/* Arrow Animation on Hover */
-.cert-item:hover .cert-arrow {
+/* Arrow Animation on Hover & Focus */
+.cert-item:hover .cert-arrow,
+.cert-item:focus .cert-arrow {
     background: var(--main-color);
     transform: translateX(5px);
 }
 
-.cert-item:hover .cert-arrow i {
+.cert-item:hover .cert-arrow i,
+.cert-item:focus .cert-arrow i {
     color: var(--bg-color);
 }

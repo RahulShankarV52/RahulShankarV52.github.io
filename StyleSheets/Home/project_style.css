@@ -3,7 +3,7 @@
 .project-container-wrapper {
     width: 100%;
     max-width: 1200px;
-    height: 70vh; /* Fixed height window */
+    height: 70vh; /* Fixed height for desktop */
     display: flex;
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 15px;
@@ -21,29 +21,69 @@
     flex-direction: column;
     padding: 20px;
     overflow-y: auto;
+    
+    /* Custom Scrollbar for internal list */
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) var(--bg-color);
 }
 
 .list-header {
-    font-size: 14px; text-transform: uppercase; letter-spacing: 1px;
-    color: #888; margin-bottom: 15px; padding-left: 10px;
+    font-size: 14px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    color: #888; 
+    margin-bottom: 15px; 
+    padding-left: 10px;
 }
 
 .project-item {
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 15px; margin-bottom: 8px; border-radius: 8px;
-    cursor: pointer; transition: 0.3s; border-left: 3px solid transparent;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px; 
+    margin-bottom: 8px; 
+    border-radius: 8px;
+    cursor: pointer; 
+    transition: 0.3s; 
+    border-left: 3px solid transparent;
+    
+    /* Accessibility */
+    outline: none;
 }
 
-.project-item:hover, .project-item.active {
+.project-item:hover, 
+.project-item.active,
+.project-item:focus {
     background: rgba(228, 63, 90, 0.1);
     border-left: 3px solid var(--main-color);
 }
 
-.project-item .p-name { font-size: 15px; color: #ccc; font-weight: 500; }
-.project-item:hover .p-name, .project-item.active .p-name { color: var(--main-color); font-weight: 600; }
+.project-item .p-name { 
+    font-size: 15px; 
+    color: #ccc; 
+    font-weight: 500; 
+}
 
-.project-item i { opacity: 0; transform: translateX(-10px); transition: 0.3s; color: var(--main-color); }
-.project-item:hover i, .project-item.active i { opacity: 1; transform: translateX(0); }
+.project-item:hover .p-name, 
+.project-item.active .p-name,
+.project-item:focus .p-name { 
+    color: var(--main-color); 
+    font-weight: 600; 
+}
+
+.project-item i { 
+    opacity: 0; 
+    transform: translateX(-10px); 
+    transition: 0.3s; 
+    color: var(--main-color); 
+}
+
+.project-item:hover i, 
+.project-item.active i,
+.project-item:focus i { 
+    opacity: 1; 
+    transform: translateX(0); 
+}
 
 /* RIGHT SIDEBAR: Content */
 .project-display {
@@ -52,12 +92,26 @@
     background: var(--bg-color);
     overflow-y: auto;
     position: relative;
+    
+    /* Custom Scrollbar for content area */
+    scrollbar-width: thin;
+    scrollbar-color: var(--main-color) var(--bg-color);
 }
 
 /* Project Cards inside Display */
-.project-card { display: none; animation: fadeIn 0.5s ease; }
-.project-card.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.project-card { 
+    display: none; 
+    animation: fadeIn 0.5s ease; 
+}
+
+.project-card.active { 
+    display: block; 
+}
+
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(10px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
 
 /* Added Container style to create the separator line */
 .card-header {
@@ -67,52 +121,181 @@
 }
 
 .card-header h1 { 
-    font-size: 42px; /* Increased size */
+    font-size: 42px; 
     margin-bottom: 15px; 
     color: var(--text-color); 
-    font-weight: 700; /* Made bolder */
+    font-weight: 700; 
     line-height: 1.2;
 }
 
 .ptech-row { 
     display: flex; 
-    gap: 10px; /* Puts space between Docker and Bash Scripting */
+    gap: 10px; 
     margin-bottom: 0; 
     flex-wrap: wrap;
 }
+
 .ptech-badge {
     background: rgba(255, 255, 255, 0.05);
     color: var(--main-color);
     border: 2px solid var(--main-color); 
-    padding: 10px 10px;
+    padding: 8px 15px;
     border-radius: 50px; 
     font-size: 12px; 
     font-weight: 700; 
     letter-spacing: 0.5px;
     transition: 0.3s;
 }
-.ptech-badge:hover {
-    border-color: var(--main-color);
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-.ptech-badge span {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--text-color);
-}
-.card-body h3 { font-size: 18px; color: var(--main-color); margin: 25px 0 10px; text-transform: uppercase; }
-.card-body p { font-size: 15px; line-height: 1.7; color: #ccc; margin-bottom: 15px; }
 
-.feature-list { list-style: none; margin-left: 5px; }
-.feature-list li { position: relative; padding-left: 20px; margin-bottom: 8px; color: #ddd; font-size: 15px; }
-.feature-list li::before { content: '>'; position: absolute; left: 0; color: var(--main-color); font-weight: bold; }
+.ptech-badge:hover {
+    background: var(--main-color);
+    color: var(--bg-color);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(228, 63, 90, 0.3);
+}
+
+.card-body h3 { 
+    font-size: 18px; 
+    color: var(--main-color); 
+    margin: 25px 0 10px; 
+    text-transform: uppercase; 
+}
+
+.card-body p { 
+    font-size: 15px; 
+    line-height: 1.7; 
+    color: #ccc; 
+    margin-bottom: 15px; 
+}
+
+.feature-list { 
+    list-style: none; 
+    margin-left: 5px; 
+}
+
+.feature-list li { 
+    position: relative; 
+    padding-left: 20px; 
+    margin-bottom: 8px; 
+    color: #ddd; 
+    font-size: 15px; 
+}
+
+.feature-list li::before { 
+    content: '>'; 
+    position: absolute; 
+    left: 0; 
+    color: var(--main-color); 
+    font-weight: bold; 
+}
 
 .btn-link {
-    display: inline-flex; align-items: center; gap: 8px; margin-top: 30px;
-    padding: 10px 25px; background: var(--main-color); color: var(--bg-color);
-    font-weight: 700; border-radius: 5px; transition: 0.3s;
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    margin-top: 30px;
+    padding: 10px 25px; 
+    background: var(--main-color); 
+    color: var(--bg-color);
+    font-weight: 700; 
+    border-radius: 40px; 
+    border: 2px solid var(--main-color);
+    transition: 0.3s;
+    text-decoration: none;
 }
+
 .btn-link:hover {
-    background: transparent; color: var(--main-color); box-shadow: 0 0 15px var(--main-color);
+    background: transparent; 
+    color: var(--main-color); 
+    box-shadow: 0 0 15px var(--main-color);
+}
+
+/* ========================================= */
+/* MOBILE RESPONSIVENESS (Horizontal Scroll) */
+/* ========================================= */
+@media (max-width: 850px) {
+    .project-container-wrapper {
+        flex-direction: column; 
+        /* REMOVE FIXED HEIGHT: Let it grow with content */
+        height: auto; 
+        max-height: none; 
+        overflow: visible;
+        background: transparent; /* Cleaner look on mobile */
+        border: none;
+        box-shadow: none;
+    }
+
+    /* 1. Transform List into Horizontal Swipe Menu */
+    .project-list {
+        width: 100%;
+        height: auto;
+        flex-direction: row; /* Horizontal */
+        overflow-x: auto; /* Scroll sideways */
+        overflow-y: hidden; /* No vertical scroll */
+        padding: 0 0 15px 0; /* Padding for scrollbar space */
+        gap: 10px;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        background: transparent;
+        
+        /* Smooth snapping */
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Hide the "Select Project" text on mobile to save space */
+    .list-header {
+        display: none;
+    }
+
+    /* 2. Turn List Items into "Pills" */
+    .project-item {
+        flex: 0 0 auto; /* Don't shrink */
+        width: auto;
+        margin-bottom: 0;
+        border-left: none;
+        border-bottom: 2px solid transparent;
+        padding: 10px 20px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 50px; /* Pill shape */
+        scroll-snap-align: start;
+        justify-content: center;
+    }
+
+    /* Active state changes to bottom border */
+    .project-item:hover, 
+    .project-item.active,
+    .project-item:focus {
+        background: var(--main-color);
+        border-left: none;
+        border-bottom: 2px solid var(--main-color);
+    }
+    
+    /* Text color fix for active pill */
+    .project-item.active .p-name {
+        color: var(--bg-color); /* Dark text on bright pill */
+    }
+    
+    /* Hide the chevron arrow on mobile pills */
+    .project-item i {
+        display: none;
+    }
+
+    /* 3. Content Area: Auto Height (No Scroll Trap) */
+    .project-display {
+        width: 100%;
+        height: auto; /* Grows as much as needed */
+        overflow: visible; /* Use page scroll */
+        padding: 20px 0; /* Remove side padding, use page margin */
+        background: transparent;
+    }
+
+    .card-header h1 {
+        font-size: 28px;
+    }
+    
+    /* Mobile Scrollbar Styling for the List */
+    .project-list::-webkit-scrollbar {
+        height: 4px; /* Thin horizontal bar */
+    }
 }

@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Rahul Shankar V - Computer Science Undergraduate specializing in Systems Engineering, Cybersecurity, and Software Development.">
     <title>Rahul's Portfolio</title>
+    
     <link rel="stylesheet" href="StyleSheets/Home/main_style.css">
     <link rel="stylesheet" href="StyleSheets/Home/project_style.css">
     <link rel="stylesheet" href="StyleSheets/Home/skill_style.css">
     <link rel="stylesheet" href="StyleSheets/Home/contact_style.css">
     <link rel="stylesheet" href="StyleSheets/Home/certifications.css">
+    
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <div class="floating-bean">
-        <a href="#home" class="bean-btn active" title="Home"></a>
-        <a href="#projects" class="bean-btn" title="About"></a>
-        <a href="#certifications" class="bean-btn" title="Certifications"></a>
-        <a href="#skills" class="bean-btn" title="Skills"></a>
-        <a href="#contact" class="bean-btn" title="Contact"></a>
-    </div>
+    
+    <nav class="floating-bean" aria-label="Quick Navigation">
+        <a href="#home" class="bean-btn active" aria-label="Go to Home"></a>
+        <a href="#projects" class="bean-btn" aria-label="Go to Projects"></a>
+        <a href="#certifications" class="bean-btn" aria-label="Go to Certifications"></a>
+        <a href="#skills" class="bean-btn" aria-label="Go to Skills"></a>
+        <a href="#contact" class="bean-btn" aria-label="Go to Contact"></a>
+    </nav>
+
     <nav class="navbar">
         <a href="#home" class="logo">~/rahulshankarv<span class="cursor">_</span></a>
         <ul>
-            <!-- Added 'nav-link' class for easier selection in JS -->
             <li><a href="#home" class="nav-link active">Home</a></li>
             <li><a href="#projects" class="nav-link">Projects</a></li>
             <li><a href="#certifications" class="nav-link">Certificates</a></li>
@@ -32,7 +36,7 @@
         </ul>
     </nav>
 
-    <div class="bar-animation">
+    <div class="bar-animation" aria-hidden="true">
         <div class="bar" style="--i:6;"></div>
         <div class="bar" style="--i:5;"></div>
         <div class="bar" style="--i:4;"></div>
@@ -51,7 +55,7 @@
                 <span style="--i:1;" data-text="Self development">Self development</span>
             </h2>
             <p class="description">
-                Computer Science undergraduate specializing in <span class="highlight">Systems Engineering,</span> and <span class="highlight">Cybersecurity</span>. 
+                Computer Science undergraduate specializing in <span class="highlight">Systems Engineering</span> and <span class="highlight">Cybersecurity</span>. 
                 I combine a strong foundation in Data Structures with practical experience in 
                 <span class="highlight">C++, Linux and Workflow</span>.
                 <br><br>
@@ -61,215 +65,58 @@
             </p>
             <div class="btn-sci">
                 <a href="Pages/Resume.html" class="btn">See Resume</a>
+                
                 <div class="sci">
-                    <a href="https://github.com/RahulShankarV52" target="_blank"><i class='bx bxl-github'></i></a>
-                    <a href="https://www.linkedin.com/in/rahul-shankar-v-56575a255/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
-                    <a href="https://www.instagram.com/rahulthemadlad/" target="_blank"><i class='bx bxl-instagram'></i></a>
-                    <a href="https://www.youtube.com/@Rahulthemadlad" target="_blank"><i class='bx bxl-youtube'></i></a>
+                    <a href="https://github.com/RahulShankarV52" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+                        <i class='bx bxl-github' aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rahul-shankar-v-56575a255/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                        <i class='bx bxl-linkedin' aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.instagram.com/rahulthemadlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile">
+                        <i class='bx bxl-instagram' aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@Rahulthemadlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel">
+                        <i class='bx bxl-youtube' aria-hidden="true"></i>
+                    </a>
                 </div>
-                <a href="#" class="btn-loc" ><i class='bx bx-map'></i>Coimbator,Tamil Nadu,India</a>
+                <a href="#" class="btn-loc"><i class='bx bx-map' aria-hidden="true"></i>Coimbatore, Tamil Nadu, India</a>
             </div>
         </div>
         <div class="home-img">
             <div class="img-box">
                 <div class="img-item">
-                    <img src="Assets/Photo-Passportsizeofficial.png" alt="">
+                    <img src="Assets/Photo-Passportsizeofficial.png" alt="Portrait of Rahul Shankar V">
                 </div>
             </div>
         </div>
     </section>
     
-    <section class="content-section" id="projects">
-    <h2 class="section-title">Projects</h2>
-    
-    <div class="project-container-wrapper">
+   <section class="content-section" id="projects">
+        <h2 class="section-title">Projects</h2>
         
-        <div class="project-list">
-            <h2 class="list-header">Select Project</h2>
+        <div class="project-container-wrapper">
             
-            <div class="project-item active" onmouseover="showProject('p1')">
-                <span class="p-name">Malware Analysis Tool*</span><i class='bx bx-chevron-right'></i>
-            </div>
-            <div class="project-item" onmouseover="showProject('p2')">
-                <span class="p-name">Verification Pipeline</span><i class='bx bx-chevron-right'></i>
-            </div>
-            <div class="project-item" onmouseover="showProject('p3')">
-                <span class="p-name">Secure REST API</span><i class='bx bx-chevron-right'></i>
-            </div>
-            <div class="project-item" onmouseover="showProject('p4')">
-                <span class="p-name">A5/1 Cipher implementation</span><i class='bx bx-chevron-right'></i>
-            </div>
-            <div class="project-item" onmouseover="showProject('p5')">
-                <span class="p-name">Voxel Terrain Gen</span><i class='bx bx-chevron-right'></i>
-            </div>
-            <div class="project-item" onmouseover="showProject('p6')">
-                <span class="p-name">Ray Caster Engine</span><i class='bx bx-chevron-right'></i>
-            </div>
+            <div class="project-list" id="project-list-container">
+                </div>
+
+            <div class="project-display" id="project-display-container">
+                </div>
+            
         </div>
 
-        <div class="project-display">
-            
-            <div id="p1" class="project-card active">
-                <div class="card-header">
-                    <h1>In Memory Payload Detector</h1>
-                    <div class="ptech-row">
-                        <span class="ptech-badge">C++</span>
-                        <span class="ptech-badge">Python</span>
-                        <span class="ptech-badge">Memory Forensics</span>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h3>Overview</h3>
-                    <p>Designed to counter sophisticated in-memory attacks, this tool interfaces directly with system RAM to identify and extract malicious payloads that never write themselves to the disk (fileless malware).</p>
-                    <h3>Key Features</h3>
-                    <ul class="feature-list">
-                        <li>Direct memory access payload extraction.</li>
-                        <li>Automated resubmission of artifacts to behavioral analysis sandboxes.</li>
-                        <li>Drastically reduces manual triage time for security analysts.</li>
-                    </ul>
-                    <div class="card-footer">
-                        <a href="#" class="btn-link">View Source Code <i class='bx bxl-github'></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="p2" class="project-card">
-                <div class="card-header">
-                    <h1>Docker Verification Pipeline</h1>
-                    <div class="ptech-row">
-                        <span class="ptech-badge">Docker</span>
-                        <span class="ptech-badge">Bash Scripting</span>
-                        <span class="ptech-badge">Formal Verification</span>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h3>Overview</h3>
-                    <p>A docker based automatic verification workflow that combines frama-c, tamarin and spin</p>
-                    <h3>Key Features</h3>
-                    <ul class="feature-list">
-                        <li>Single-command execution to ensure automatic verification and the ability to cherry pick the tools themselves</li>
-                        <li>The files can be stored in a specific folder and automatically added to the environment</li>
-                        <li>Instead of running 3 commands, we can run them together creating a sandbox which doesnt conflict with existing system packages</li>
-                    </ul>
-                    <div class="card-footer">
-                        <a href="https://github.com/RahulShankarV52/dfst-code-analyzer" target="_blank" class="btn-link">View project<i class='bx bxl-github'></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="p3" class="project-card">
-                <div class="card-header">
-                    <h1>Fortified Kanban (SecOps)</h1>
-                    <div class="ptech-row">
-                        <span class="ptech-badge">FastAPI</span>
-                        <span class="ptech-badge">YARA Engine</span>
-                        <span class="ptech-badge">AES-256</span>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h3>Overview</h3>
-                    <p>A self-hosted project management tool built with a <strong>Zero-Trust mindset</strong>. Unlike standard Kanban boards, this application prioritizes forensic readiness and data confidentiality, simulating a high-security environment for sensitive operations.</p>
-                    
-                    <h3>Key Features</h3>
-                    <ul class="feature-list">
-                        <li><strong>Zero-Knowledge Storage:</strong> Application-layer AES-256 encryption ensures data remains unreadable even if the database is compromised.</li>
-                        <li><strong>Active Malware Defense:</strong> Integrated YARA engine performs in-memory streaming scans and magic-byte validation on all file uploads.</li>
-                        <li><strong>Forensic Audit Trail:</strong> Immutable logging of all actions and "soft deletion" strategies to preserve evidence for post-incident analysis.</li>
-                    </ul>
-                    
-                    <div class="card-footer">
-                        <a href="https://github.com/RahulShankarV52/fortified_local_kanban_projectmanager" target="_blank" class="btn-link">View Source <i class='bx bxl-github'></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="p4" class="project-card">
-                <div class="card-header">
-                    <h1>A5/1 Stream Cipher Simulation</h1>
-                    <div class="ptech-row">
-                        <span class="ptech-badge">Web</span>
-                        <span class="ptech-badge">Cryptography</span>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h3>Overview</h3>
-                    <p>This project is a one to one recreation of the A5/1 stream cipher that is used in OLd GSM systems, meant to educate viewers on the methodology</p>
-                    <h3>Key Features</h3>
-                    <ul class="feature-list">
-                        <li>A description of the working of the system</li>
-                        <li>A initialization log window showing the behind the scenes workings</li>
-                        <li>A 2 party communication mockup to test the code for yourself.</li>
-                    </ul>
-                    <div class="card-footer">
-                        <a href="https://github.com/RahulShankarV52/A5-1_StreamCipherDemo" target="_blank" class="btn-link">View Project <i class='bx bxl-github'></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="p5" class="project-card">
-                <div class="card-header">
-                    <h1>Voxel Terrain Generator</h1>
-                    <div class="ptech-row">
-                        <span class="ptech-badge">Python</span>
-                        <span class="ptech-badge">JIT Compilation</span>
-                        <span class="ptech-badge">NumPy</span>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h3>Overview</h3>
-                    <p>A procedural generation engine that creates Minecraft-like voxel landscapes. It utilizes Python with JIT compilation (Numba) to handle heavy computational loads in real-time.</p>
-                    <h3>Key Features</h3>
-                    <ul class="feature-list">
-                        <li>Perlin Noise algorithms for realistic terrain elevation.</li>
-                        <li>Optimized chunk loading system.</li>
-                        <li>Real-time rendering capabilities.</li>
-                    </ul>
-                    <div class="card-footer">
-                        <a href="https://github.com/RahulShankarV52/Pycraft-Minecraft-in-Python-" target="_blank" class="btn-link">View Source <i class='bx bxl-github'></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="p6" class="project-card">
-                <div class="card-header">
-                    <h1>Ray Casting Engine</h1>
-                    <div class="ptech-row">
-                        <span class="ptech-badge">Python</span>
-                        <span class="ptech-badge">Mathematics</span>
-                        <span class="ptech-badge">Rendering</span>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <h3>Overview</h3>
-                    <p>Implementation of a retro-style ray casting engine similar to Wolfenstein 3D. This project focuses on the raw mathematics of 3D projection on a 2D plane without using 3D game engines.</p>
-                    <h3>Key Features</h3>
-                    <ul class="feature-list">
-                        <li>Pure mathematical implementation of ray casting.</li>
-                        <li>Texture mapping and wall collision detection.</li>
-                        <li>Highly optimized loop structures for consistent frame rates.</li>
-                    </ul>
-                    <div class="card-footer">
-                        <a href="https://rahulthemadlad.itch.io/bad-doom-clone" target="_blank" class="btn-link">View Game <i class='bx bxs-joystick'></i></a>
-                    </div>
-                </div>
-            </div>
-
+        <div style="text-align: right; margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">
+            <span>* Project is currently in progress</span>
         </div>
-    </div>
 
-    <div style="text-align: right; margin-top: 15px; font-size: 0.9rem; opacity: 0.8;">
-        <span>* Project is currently in progress</span>
-    </div>
-
-</section>
+    </section>
 
     <section class="content-section" id="certifications">
         <h2 class="section-title">Certificates</h2>
 
         <div class="cert-grid-wrapper">
             
-            <!-- Certificate Item 1: Palo Alto -->
-            <a target="_blank" class="cert-item">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-item">
                 <div class="cert-content">
                     <div class="cert-top">
                         <span class="cert-issuer">Palo Alto Networks</span>
@@ -280,12 +127,11 @@
                     <span class="cert-tag">Cloud Security</span>
                 </div>
                 <div class="cert-arrow">
-                    <i class='bx bx-right-arrow-alt'></i>
+                    <i class='bx bx-right-arrow-alt' aria-hidden="true"></i>
                 </div>
             </a>
 
-            <!-- Certificate Item 2: Microsoft Learn -->
-            <a href="https://learn.microsoft.com/en-gb/users/rahulshankarv-5141/" target="_blank" class="cert-item">
+            <a href="https://learn.microsoft.com/en-gb/users/rahulshankarv-5141/" target="_blank" rel="noopener noreferrer" class="cert-item">
                 <div class="cert-content">
                     <div class="cert-top">
                         <span class="cert-issuer">Microsoft Learn</span>
@@ -295,12 +141,11 @@
                     <span class="cert-tag">Cloud Computing</span>
                 </div>
                 <div class="cert-arrow">
-                    <i class='bx bx-right-arrow-alt'></i>
+                    <i class='bx bx-right-arrow-alt' aria-hidden="true"></i>
                 </div>
             </a>
 
-            <!-- Certificate Item 3: EC-Council -->
-            <a target="_blank" class="cert-item">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="cert-item">
                 <div class="cert-content">
                     <div class="cert-top">
                         <span class="cert-issuer">EC-Council</span>
@@ -310,7 +155,7 @@
                     <span class="cert-tag">Cybersecurity</span>
                 </div>
                 <div class="cert-arrow">
-                    <i class='bx bx-right-arrow-alt'></i>
+                    <i class='bx bx-right-arrow-alt' aria-hidden="true"></i>
                 </div>
             </a>
 
@@ -329,139 +174,135 @@
 
         <div class="filter-container">
             
-            <!-- === LANGUAGES (.lang) === -->
             <div class="filter-item lang">
                 <div class="tech-badge">
-                    <i class='bx bxl-c-plus-plus'></i>
+                    <i class='bx bxl-c-plus-plus' aria-hidden="true"></i>
                     <span>C++</span>
                 </div>
             </div>
 
             <div class="filter-item lang">
                 <div class="tech-badge">
-                    <i class='bx bx-code-block'></i>
+                    <i class='bx bx-code-block' aria-hidden="true"></i>
                     <span>Rust</span>
                 </div>
             </div>
 
             <div class="filter-item lang">
                 <div class="tech-badge">
-                    <i class='bx bxl-java'></i>
+                    <i class='bx bxl-java' aria-hidden="true"></i>
                     <span>Java</span>
                 </div>
             </div>
 
             <div class="filter-item lang">
                 <div class="tech-badge">
-                    <i class='bx bx-code-alt'></i>
+                    <i class='bx bx-code-alt' aria-hidden="true"></i>
                     <span>C</span>
                 </div>
             </div>
 
             <div class="filter-item lang">
                 <div class="tech-badge">
-                    <i class='bx bxl-python'></i>
+                    <i class='bx bxl-python' aria-hidden="true"></i>
                     <span>Python</span>
                 </div>
             </div>
 
             <div class="filter-item lang">
                 <div class="tech-badge">
-                    <i class='bx bx-terminal'></i>
+                    <i class='bx bx-terminal' aria-hidden="true"></i>
                     <span>Bash/Shell</span>
                 </div>
             </div>
 
             <div class="filter-item lang">
                 <div class="tech-badge">
-                    <i class='bx bx-data'></i>
+                    <i class='bx bx-data' aria-hidden="true"></i>
                     <span>SQL</span>
                 </div>
             </div>
 
             <div class="filter-item lang">
                 <div class="tech-badge">
-                    <i class='bx bxl-javascript'></i>
+                    <i class='bx bxl-javascript' aria-hidden="true"></i>
                     <span>JavaScript</span>
                 </div>
             </div>
 
             <div class="filter-item lang">
                 <div class="tech-badge">
-                    <i class='bx bxl-html5'></i>
+                    <i class='bx bxl-html5' aria-hidden="true"></i>
                     <span>HTML5</span>
                 </div>
             </div>
 
-            <!-- === ECO-SYSTEMS / SYSTEMS (.sys) === -->
-            
             <div class="filter-item sys">
                 <div class="tech-badge">
-                    <i class='bx bxl-tux'></i>
+                    <i class='bx bxl-tux' aria-hidden="true"></i>
                     <span>Linux (Arch/Ubuntu)</span>
                 </div>
             </div>
 
             <div class="filter-item sys">
                 <div class="tech-badge">
-                    <i class='bx bxl-postgresql'></i>
+                    <i class='bx bxl-postgresql' aria-hidden="true"></i>
                     <span>PostgreSQL</span>
                 </div>
             </div>
 
             <div class="filter-item sys">
                 <div class="tech-badge">
-                    <i class='bx bx-server'></i>
+                    <i class='bx bx-server' aria-hidden="true"></i>
                     <span>REST APIs</span>
                 </div>
             </div>
 
-            <!-- === DEVELOPMENT TOOLS / CREATIVE (.tool) === -->
             <div class="filter-item tool">
                 <div class="tech-badge">
-                    <i class='bx bxl-docker'></i>
+                    <i class='bx bxl-docker' aria-hidden="true"></i>
                     <span>Docker</span>
                 </div>
             </div>
 
             <div class="filter-item tool">
                 <div class="tech-badge">
-                    <i class='bx bxl-git'></i>
+                    <i class='bx bxl-git' aria-hidden="true"></i>
                     <span>Git/GitHub</span>
                 </div>
             </div>
 
             <div class="filter-item tool">
                 <div class="tech-badge">
-                    <i class='bx bx-wrench'></i>
+                    <i class='bx bx-wrench' aria-hidden="true"></i>
                     <span>CMake/Make</span>
                 </div>
             </div>
 
             <div class="filter-item tool">
                 <div class="tech-badge">
-                    <i class='bx bx-bug'></i>
+                    <i class='bx bx-bug' aria-hidden="true"></i>
                     <span>GDB/Valgrind</span>
                 </div>
             </div>
 
             <div class="filter-item tool">
                 <div class="tech-badge">
-                    <i class='bx bxs-joystick'></i>
+                    <i class='bx bxs-joystick' aria-hidden="true"></i>
                     <span>Godot/Engines</span>
                 </div>
             </div>
 
             <div class="filter-item tool">
                 <div class="tech-badge">
-                    <i class='bx bxl-unity'></i>
+                    <i class='bx bxl-unity' aria-hidden="true"></i>
                     <span>Unity</span>
                 </div>
             </div>
 
             <div class="filter-item tool">
                 <div class="tech-badge">
-                    <i class='bx bxl-blender'></i>
+                    <i class='bx bxl-blender' aria-hidden="true"></i>
                     <span>Blender</span>
                 </div>
             </div>
@@ -471,7 +312,6 @@
     <section class="content-section" id="contact">
         <h2 class="section-title">Get In Touch</h2>
         <div class="contact-box">
-            <!-- UPDATED TEXT -->
             <p>
                 I am currently exploring for opportunities in 
                 <span class="highlight">Cybersecurity</span>,
@@ -482,15 +322,13 @@
             </p>
             
             <div class="contact-socials">
-                <a href="https://github.com/RahulShankarV52" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://www.linkedin.com/in/rahul-shankar-v-56575a255/" target="_blank"><i class='bx bxl-linkedin' ></i></a>
-                <a href="https://www.instagram.com/rahulthemadlad/" target="_blank"><i class='bx bxl-instagram'></i></a>
-                <a href="https://www.youtube.com/@Rahulthemadlad" target="_blank"><i class='bx bxl-youtube'></i></a>
-            <!-- Added Email Icon for quick access -->
-                <a href="mailto:your.email@example.com"><i class='bx bx-envelope'></i></a>
+                <a href="https://github.com/RahulShankarV52" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile"><i class='bx bxl-github' aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/rahul-shankar-v-56575a255/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class='bx bxl-linkedin' aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/rahulthemadlad/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Profile"><i class='bx bxl-instagram' aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/@Rahulthemadlad" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel"><i class='bx bxl-youtube' aria-hidden="true"></i></a>
+            <a href="mailto:your.email@example.com" aria-label="Email Me"><i class='bx bx-envelope' aria-hidden="true"></i></a>
             </div>
             
-            <!-- Added a flex container for buttons if you want them side-by-side -->
             <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
                 <a href="Pages/Resume.html" class="btn">See Resume</a>
             </div>
@@ -500,6 +338,7 @@
             </div>
         </div>
     </section>
+<script src="javascript/project_data.js"></script>
 <script src="javascript/main.js"></script>
 </body>
 </html>

@@ -2,12 +2,23 @@
 
 .contact-box {
     max-width: 700px;
+    width: 90%; /* Ensures it doesn't touch edges on small screens */
     text-align: center;
-    background: rgba(255, 255, 255, 0.05); /* Subtle glass card background */
-    padding: 50px;
+    
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); /* Blurs the background behind the card */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    
+    /* Responsive Padding: 20px on mobile, scales to 50px on desktop */
+    padding: clamp(20px, 5vw, 50px);
+    
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    
+    /* Centering */
+    margin: 0 auto; 
 }
 
 .contact-box p {
@@ -16,17 +27,20 @@
     margin-bottom: 30px;
     color: var(--text-color);
 }
-/* This makes the key words pop with your chosen accent color */
+
+/* Highlight accent color */
 .contact-box p .highlight {
     color: var(--main-color);
     font-weight: 600;
     position: relative;
     display: inline-block;
 }
+
 /* Social Icons Row */
 .contact-socials {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* Allows icons to wrap on tiny screens */
     gap: 30px;
     margin-bottom: 40px;
 }
@@ -40,49 +54,57 @@
     background: transparent;
     border: 2px solid var(--main-color);
     border-radius: 50%;
-    font-size: 30px; /* Big Icon */
+    font-size: 30px;
     color: var(--main-color);
     transition: 0.4s;
     text-decoration: none;
+    
+    /* Accessibility: Ensure outline is hidden when custom focus is applied */
+    outline: none;
 }
 
-.contact-socials a:hover {
+/* Combine Hover and Focus for Accessibility */
+.contact-socials a:hover,
+.contact-socials a:focus {
     background: var(--main-color);
     color: var(--bg-color);
-    box-shadow: 0 0 20px var(--main-color); /* Strong Neon Glow */
+    box-shadow: 0 0 20px var(--main-color);
     transform: translateY(-5px);
 }
+
+/* Button Styling - Synchronized with Main Theme */
 .contact-box .btn {
-    display: inline-block; /* CRITICAL: Allows margin-bottom to work */
+    display: inline-block;
     padding: 15px 40px;
     font-size: 1.2rem;
     
-    /* Ensure it looks like a button */
     background: var(--main-color);
     color: var(--bg-color); 
-    border-radius: 5px;
+    
+    /* FIXED: Changed from 5px to 40px to match main_style.css pill shape */
+    border-radius: 40px; 
+    
     text-decoration: none;
     transition: 0.3s;
     font-weight: 600;
-
-    /* The spacing fix */
-    margin-bottom: 50px; /* Pushes the footer note down */
+    margin-bottom: 50px;
+    cursor: pointer;
 }
 
-.contact-box .btn:hover {
+.contact-box .btn:hover,
+.contact-box .btn:focus {
     box-shadow: 0 0 15px var(--main-color);
     transform: scale(1.05);
-}
-/* Specific Style for the 'Say Hello' Button */
-.email-btn {
-    padding: 15px 40px;
-    font-size: 1.2rem;
-    margin-bottom: 50px; /* Space before footer note */
+    background: transparent; /* Matching the hollow effect from main_style */
+    color: var(--main-color);
+    border: 2px solid var(--main-color); /* Maintain border when hollow */
+    /* Adjust padding to account for border width to prevent layout shift */
+    padding: 13px 38px; 
 }
 
-/* Small Footer Note */
+/* Footer Note */
 .footer-note p {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.5); /* Dimmed text */
+    color: rgba(255, 255, 255, 0.5);
     margin-bottom: 0;
 }
